@@ -8,7 +8,7 @@ export default function Hero() {
     return (
         <>
             <div className={styles.message}>
-                ¿Con dónde sueñas<br />
+                ¿A dónde sueñas<br />
                 ir hoy?
             </div>
             <TextareaAutosize className={styles.input}></TextareaAutosize>
