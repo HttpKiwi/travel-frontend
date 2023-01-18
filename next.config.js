@@ -10,9 +10,12 @@ const nextConfig = {
 				hostname: 'pbs.twimg.com',
 				port: '',
 				pathname: '/media/*',
+			},{
+				protocol: 'https',
+				hostname: 'www.eltiempo.com',
+				port: '',
 			},
 		],
 	},
 };
-
 module.exports = nextConfig;
