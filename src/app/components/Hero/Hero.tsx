@@ -10,7 +10,7 @@ export default function Hero() {
     const [completion, setCompletion] = useState("")
 
     const getCompletion = async () => {
-        const res = await fetch(`http://127.0.0.1:5000/"${value}"`)
+        const res = await fetch(`http://http://143.198.177.199/:5000/"${value}"`)
         setCompletion(await res.text())
     }
 
