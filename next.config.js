@@ -14,6 +14,10 @@ const nextConfig = {
 				protocol: 'https',
 				hostname: 'www.eltiempo.com',
 				port: '',
+			},{
+				protocol: 'https',
+				hostname: 'colombia.travel',
+				port: '',
 			},
 		],
 	},

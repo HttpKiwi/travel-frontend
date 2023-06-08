@@ -5,7 +5,7 @@ export default function Header() {
     return (
         <div className={styles.header}>
             <div className={styles.title}>
-                Travel AI
+                SPECtra
             </div>
             <div className={styles.navitems}>
                 <div>Example1</div>
