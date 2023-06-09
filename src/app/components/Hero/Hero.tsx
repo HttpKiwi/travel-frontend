@@ -10,7 +10,7 @@ export default function Hero() {
     const [completion, setCompletion] = useState("")
 
     const getCompletion = async () => {
-        const res = await fetch(`https://143.198.177.199/:5000/"${value}"`)
+        const res = await fetch(`https://spectratravel.herokuapp.com/"${value}"`)
         setCompletion(await res.text())
     }
 
