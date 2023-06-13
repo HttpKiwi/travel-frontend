@@ -1,4 +1,4 @@
-import { Itinerary } from '@/pages/interfaces/responses';
+import { Itinerary } from '@/app/interfaces/responses';
 import PhotosCarrousel from '../PhotoCarrousel/PhotoCarrousel';
 import styles from './ResultCard.module.css';
 import FlightInfo from '../FlightInfo/FlightInfo';

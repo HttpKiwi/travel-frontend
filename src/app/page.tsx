@@ -6,7 +6,7 @@ import Hero from './components/Hero/Hero';
 import Header from './components/Header/Header';
 import bg from 'public/bgr.jpg';
 import { useCallback, useState } from 'react';
-import { Itinerary } from '@/pages/interfaces/responses';
+import { Itinerary } from '@/app/interfaces/responses';
 import ResultCard from './components/ResultCard/ResultCard';
 
 const inter = Inter({ subsets: ['latin'] });

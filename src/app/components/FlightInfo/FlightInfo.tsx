@@ -1,5 +1,5 @@
 import styles from './FlightInfo.module.css';
-import { Flight } from '@/pages/interfaces/responses';
+import { Flight } from '@/app/interfaces/responses';
 import Image from 'next/image'
 import Arrow from 'public/arrow.svg'
 import { useEffect, useState } from 'react';
