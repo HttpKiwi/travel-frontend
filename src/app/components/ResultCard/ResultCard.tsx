@@ -22,7 +22,7 @@ export default function ResultCard(props: ResultCardProps) {
             {props.itineraries.map((itinerary: Itinerary) => (
                 <div key={itinerary.departure.id} className={styles.container}>
                     <div className={styles.content}>
-                        <a className={styles.lodgings} href={itinerary.lodging.deeplink}>
+                        <a className={styles.lodgings} href={itinerary.lodging.deeplink.replace(".com", ".com.co")}>
                             <div style={{ paddingBottom: '20px' }}>
                                 <h2>{itinerary.lodging.name}</h2>
                             </div>
@@ -33,7 +33,7 @@ export default function ResultCard(props: ResultCardProps) {
                                 {itinerary.lodging.bathrooms} baños · {itinerary.lodging.bedrooms} habitaciones · {itinerary.lodging.beds} camas
                             </div>
                             <div>
-                                ${itinerary.lodging.price?.rate * 4200}
+                                {itinerary.lodging.price?.rate * 4200}
                             </div>
                         </a>
                         <div className={styles.flights}>
