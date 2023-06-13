@@ -3,6 +3,7 @@ import TextareaAutosize from 'react-textarea-autosize';
 import styles from './Hero.module.css'
 import { useState, useEffect, useRef } from 'react';
 import { Input, Itinerary } from '@/app/interfaces/responses';
+import test from 'node:test';
 
 type HeroProps = {
     setItineraries: (data: Itinerary[]) => void;
@@ -30,8 +31,8 @@ export default function Hero(props: HeroProps) {
     }
 
     const getCompletion = async () => {
-        const res = await fetch(`http://127.0.0.1:5000/ner/"${value}"`) //dev
-        // const res = await fetch(`https://spectratravel.herokuapp.com/ner/"${value}"`) //production
+        // const res = await fetch(`http://127.0.0.1:5000/ner/"${value}"`) //dev
+        const res = await fetch(`https://spectratravel.herokuapp.com/ner/"${value}"`) //production
         let data: Input
         data = await res.json()
 
@@ -47,9 +48,10 @@ export default function Hero(props: HeroProps) {
             setText("¿En qué rango de fechas deseas hacer la búsqueda?")
         }
 
+        console.log(data)
         if (checkMinimumCompletion(data)) {
-            const res = await fetch(`http://127.0.0.1:5000/"${value}"`) //dev
-            // const res = await fetch(`https://spectratravel.herokuapp.com/"${value}"`) //production
+            // const res = await fetch(`http://127.0.0.1:5000/"${value}"`) //dev
+            const res = await fetch(`https://spectratravel.herokuapp.com/"${value}"`) //production
             let data: Itinerary[]
             data = await res.json()
             props.setItineraries(data)
