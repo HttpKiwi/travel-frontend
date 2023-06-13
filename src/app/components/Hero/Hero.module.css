@@ -3,7 +3,7 @@
 	padding: 20px;
 	color: #ddc6ac;
 	text-shadow: 2px 2px black;
-	padding-bottom: 20vh;
+	white-space: pre-line;
 }
 
 .container {
@@ -11,12 +11,13 @@
 	flex-direction: column;
 	text-align: center;
 	align-items: center;
+	gap: 15vh;
 }
 
 .input {
 	width: 70%;
 	color: #000;
-	font-size: 25px;
+	font-size: 35px;
 	background-color: #fff;
 	border-radius: 24px;
 	min-height: 30px;

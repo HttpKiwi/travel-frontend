@@ -7,14 +7,21 @@ const nextConfig = {
 		remotePatterns: [
 			{
 				protocol: 'https',
+				hostname: 'a0.muscache.com',
+				port: '',
+			},
+			{
+				protocol: 'https',
 				hostname: 'pbs.twimg.com',
 				port: '',
 				pathname: '/media/*',
-			},{
+			},
+			{
 				protocol: 'https',
 				hostname: 'www.eltiempo.com',
 				port: '',
-			},{
+			},
+			{
 				protocol: 'https',
 				hostname: 'colombia.travel',
 				port: '',

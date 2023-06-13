@@ -1,0 +1,42 @@
+.container {
+	background-color: #fffefe;
+	border-radius: 13px;
+	padding: 20px;
+	max-width: 90%;
+	margin: auto;
+	box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+	border: solid #1c5f42;
+	border-width: 5px;
+	/* box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+		rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+		rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px; */
+}
+
+.content {
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+	padding-top: 10px;
+	justify-content: space-between;
+}
+
+.itineraries {
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+}
+
+.lodging {
+	padding-bottom: 20px;
+}
+
+.lodgingDetails {
+	padding-top: 10px;
+	color: gray;
+}
+
+.flights {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
