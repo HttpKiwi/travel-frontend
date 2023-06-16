@@ -49,7 +49,7 @@ export default function Hero(props: HeroProps) {
             setText("¿Por cuántos días te quedarás?")
             setPrompt(prompt + value)
             setValue("")
-        } else if (data.duration > 12) {
+        } else if (data.duration > 10) {
             setText("¿Por cuántos días viajarás?")
             setPrompt(prompt + value)
             setValue("")
@@ -63,7 +63,7 @@ export default function Hero(props: HeroProps) {
 
         if (checkMinimumCompletion(data)) {
             setText("Espera mientras encontramos tu viaje al mejor precio")
-            const res = await fetch(`https://spectragpt.fun/"${prompt}${value}"`) //production
+            const res = await fetch(`https://spectragpt.fun/mzn/"${prompt}${value}"`) //production
             let data: Itinerary[]
             data = await res.json()
             props.setItineraries(data)
