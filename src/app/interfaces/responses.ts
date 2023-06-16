@@ -114,6 +114,7 @@ export interface Flight {
 interface Price {
 	rate: number;
 	currency: string;
+	total: number;
 }
 
 interface Lodging {

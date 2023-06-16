@@ -13,7 +13,7 @@ type HeroProps = {
 export default function Hero(props: HeroProps) {
 
     const [value, setValue] = useState("")
-    const [completion, setCompletion] = useState("")
+    const [prompt, setPrompt] = useState("")
 
     const [text, setText] = useState(`¿A dónde sueñas
     ir hoy?`)
@@ -32,35 +32,44 @@ export default function Hero(props: HeroProps) {
 
     const getCompletion = async () => {
         // const res = await fetch(`http://127.0.0.1:5000/ner/"${value}"`) //dev
-        const res = await fetch(`https://spectragpt.fun/ner/"${value}"`) //production
+        const res = await fetch(`https://spectragpt.fun/ner/"${prompt}${value}"`) //production
         let data: Input
         data = await res.json()
+        console.log(data)
 
         if (data.adults === -1) {
             setText("Necesito más información sobre las personas que viajan. \n¿Cuántos adultos, niños e infantes son?")
+            setPrompt(prompt + value)
+            setValue("")
         } else if (!data.origin) {
             setText("¿Desde qué aeropuerto deseas viajar?")
+            setPrompt(prompt + value)
+            setValue("")
         } else if (!data.duration) {
             setText("¿Por cuántos días te quedarás?")
+            setPrompt(prompt + value)
+            setValue("")
         } else if (data.duration > 12) {
             setText("¿Por cuántos días viajarás?")
+            setPrompt(prompt + value)
+            setValue("")
         } else if (!data.endDate || !data.startDate) {
             setText("¿En qué rango de fechas deseas hacer la búsqueda?")
+            setPrompt(prompt + value)
+            setValue("")
         }
 
-        console.log(data)
-        if (checkMinimumCompletion(data)) {
-            // const res = await fetch(`http://127.0.0.1:5000/"${value}"`) //dev
-            const res = await fetch(`https://spectragpt.fun/"${value}"`, {
+        console.log(prompt)
 
-            }) //production
+        if (checkMinimumCompletion(data)) {
+            setText("Espera mientras encontramos tu viaje al mejor precio")
+            const res = await fetch(`https://spectragpt.fun/"${prompt}${value}"`) //production
             let data: Itinerary[]
             data = await res.json()
             props.setItineraries(data)
         }
 
-
-        setCompletion(JSON.stringify(data))
+        console.log(data)
     }
 
 
@@ -71,16 +80,16 @@ export default function Hero(props: HeroProps) {
                     {text}
                 </div>
             </div>
-            {/*  */}
-            <TextareaAutosize
-                className={styles.input}
-                onChange={ev => setValue(ev.target.value)}
-                onSubmit={() => getCompletion()}
-            />
-            <h1>
-                {completion}
-            </h1>
-            <button onClick={() => getCompletion()}>completion</button>
+            <div className={styles.search}>
+                <TextareaAutosize
+                    className={styles.input}
+                    onChange={ev => setValue(ev.target.value)}
+                    onSubmit={() => getCompletion()}
+                    placeholder={"Deseo ir a Pasto con mi familia..."}
+                    value={value}
+                />
+                <button className={styles.button} onClick={() => getCompletion()}>Búsqueda</button>
+            </div>
         </div >
     );
 }
