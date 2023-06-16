@@ -65,7 +65,7 @@ export default function Hero(props: HeroProps) {
             setText("Espera mientras encontramos tu viaje al mejor precio")
             const res = await fetch(`https://spectragpt.fun/mzn`, {
                 method: "GET",
-                body: JSON.parse(data.toString())
+                body: JSON.stringify(data)
             }) //production
             let obj: Itinerary[]
             obj = await res.json()
