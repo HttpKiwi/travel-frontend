@@ -63,8 +63,9 @@ export default function Hero(props: HeroProps) {
 
         if (checkMinimumCompletion(data)) {
             setText("Espera mientras encontramos tu viaje al mejor precio")
+            //const res = await fetch(`http://127.0.0.1:5000/mzn`, { //dev
             const res = await fetch(`https://spectragpt.fun/mzn`, {
-                method: "GET",
+                method: "POST",
                 body: JSON.stringify(data)
             }) //production
             let obj: Itinerary[]
