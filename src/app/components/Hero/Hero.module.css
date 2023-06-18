@@ -83,3 +83,16 @@
 	flex-direction: column;
 	align-items: center;
 }
+
+.additionalInfo {
+	display: block;
+	font-size: 60px;
+}
+
+.peopleHover {
+	font-weight: bold;
+	cursor: help;
+	text-decoration: underline;
+	color: #c05131;
+	text-shadow: 2px 2px 2px white;
+}
