@@ -1,17 +1,13 @@
-import Link from 'next/link';
+/* eslint-disable @next/next/no-img-element */
+import Image from 'next/image'
 import styles from './Header.module.css';
 
 export default function Header() {
     return (
         <div className={styles.header}>
-            <div className={styles.title}>
-                SPECtra
-            </div>
+            <Image src={'/spectra-logo.png'} alt={"spectra logo"} width={150} height={90} />
             <div className={styles.navitems}>
-                <div>Example1</div>
-                <div>Example2</div>
-                <div>Example1</div>
-                <div>Example2</div>
+                Smart travel Plans Empowered with ConsTRAint technologies
             </div>
         </div>
     );

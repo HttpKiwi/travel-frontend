@@ -17,4 +17,8 @@
 	flex-direction: row;
 	align-items: flex-end;
 	gap: 30px;
+	font-size: 20px;
+	font-weight: 500;
+	font-family: Inter, -apple-system, system-ui, 'Segoe UI', Helvetica, Arial,
+		sans-serif;
 }
