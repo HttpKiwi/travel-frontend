@@ -114,7 +114,7 @@ export default function Hero(props: HeroProps) {
                 break;
         }
         // const res = await fetch(`http://127.0.0.1:5000/${url}`) //dev
-        const res = await fetch(`https://spectragpt.fun/"${url}"`) //production
+        const res = await fetch(`https://spectragpt.fun/${url}`) //production
         partialData = await res.json()
         console.log(partialData);
         let mergedData = { ...data, ...partialData }
