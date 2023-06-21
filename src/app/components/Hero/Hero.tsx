@@ -93,8 +93,8 @@ export default function Hero(props: HeroProps) {
             if (hasValidInput(data)) {
                 setText("Espera mientras encontramos tu viaje al mejor precio");
                 console.log(data);
-                const res = await fetch("http://127.0.0.1:5000/mzn", {
-                    // const res = await fetch("hhttps://spectragpt.fun/mzn", {
+                // const res = await fetch("http://127.0.0.1:5000/mzn", {
+                const res = await fetch("hhttps://spectragpt.fun/mzn", {
                     method: "POST",
                     body: JSON.stringify(data)
                 });
@@ -143,8 +143,8 @@ export default function Hero(props: HeroProps) {
                 setFirstPrompt(value)
                 break;
         }
-        const res = await fetch(`http://127.0.0.1:5000/${url}`) //dev
-        // const res = await fetch(`https://spectragpt.fun/${url}`) //production
+        // const res = await fetch(`http://127.0.0.1:5000/${url}`) //dev
+        const res = await fetch(`https://spectragpt.fun/${url}`) //production
         partialData = await res.json()
         let mergedData = { ...data, ...partialData }
         setData(mergedData)
