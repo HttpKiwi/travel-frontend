@@ -96,3 +96,9 @@
 	color: #c05131;
 	text-shadow: 2px 2px 2px white;
 }
+
+.error {
+	font-size: 48px;
+	padding: 0.25em 0;
+	background: rgba(0, 0, 0, 0.308);
+}

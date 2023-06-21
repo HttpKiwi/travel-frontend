@@ -117,7 +117,7 @@ interface Price {
 	total: number;
 }
 
-interface Lodging {
+export interface Lodging {
 	_id: string;
 	id: string;
 	url: string;

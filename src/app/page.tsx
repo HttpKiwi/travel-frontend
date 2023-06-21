@@ -8,14 +8,15 @@ import bg from 'public/bgr.jpg';
 import { useCallback, useState } from 'react';
 import { Itinerary } from '@/app/interfaces/responses';
 import ResultCard from './components/ResultCard/ResultCard';
+import { SolverSolution } from './interfaces/solverSolution.model';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
-  const [itineraries, setItineraries] = useState<Itinerary[]>([])
+  const [solutions, setSolutions] = useState<SolverSolution[]>([])
 
-  const setItinerariesCallback = useCallback((data: Itinerary[]) => {
-    setItineraries(data)
+  const setSolutionsCallback = useCallback((data: SolverSolution[]) => {
+    setSolutions(data)
   }, [])
 
   return (
@@ -24,8 +25,8 @@ export default function Home() {
         className={styles.container}
       >
         <Header />
-        <Hero setItineraries={setItinerariesCallback} />
-        <ResultCard itineraries={itineraries} />
+        <Hero setSolutions={setSolutionsCallback} />
+        <ResultCard solutions={solutions} />
       </div>
     </main>
   );

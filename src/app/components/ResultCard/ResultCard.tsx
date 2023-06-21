@@ -2,9 +2,10 @@ import { Itinerary } from '@/app/interfaces/responses';
 import PhotosCarrousel from '../PhotoCarrousel/PhotoCarrousel';
 import styles from './ResultCard.module.css';
 import FlightInfo from '../FlightInfo/FlightInfo';
+import { SolverSolution } from '@/app/interfaces/solverSolution.model';
 
 type ResultCardProps = {
-    itineraries: Itinerary[];
+    solutions: SolverSolution[];
 }
 
 const dateFormat = (string: string) => {
@@ -17,9 +18,26 @@ const hourFormat = (string: string) => {
 
 
 export default function ResultCard(props: ResultCardProps) {
+
+    let itineraries: Itinerary[] = []
+    props.solutions.forEach((solution) => {
+        const lodgingResult = solution.solution?.lodging?.result
+        const departureResult = solution.solution?.departure?.result
+        const returnResult = solution.solution?.return?.result
+        if (lodgingResult && departureResult && returnResult) {
+            itineraries.push({
+                "lodging": lodgingResult,
+                "departure": departureResult,
+                "return": returnResult
+            })
+        }
+    })
+
+
+
     return (
         <div className={styles.itineraries}>
-            {props.itineraries.map((itinerary: Itinerary) => (
+            {itineraries.map((itinerary: Itinerary) => (
                 <div key={itinerary.departure.id} className={styles.container}>
                     <div className={styles.content}>
                         <a className={styles.lodgings} href={itinerary.lodging.deeplink.replace(".com", ".com.co")}>
