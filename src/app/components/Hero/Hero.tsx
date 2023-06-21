@@ -94,7 +94,7 @@ export default function Hero(props: HeroProps) {
                 setText("Espera mientras encontramos tu viaje al mejor precio");
                 console.log(data);
                 // const res = await fetch("http://127.0.0.1:5000/mzn", {
-                const res = await fetch("hhttps://spectragpt.fun/mzn", {
+                const res = await fetch("https://spectragpt.fun/mzn", {
                     method: "POST",
                     body: JSON.stringify(data)
                 });
