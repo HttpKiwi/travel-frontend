@@ -51,7 +51,7 @@ export default function ResultCard(props: ResultCardProps) {
                                 {itinerary.lodging.bathrooms} baños · {itinerary.lodging.bedrooms} habitaciones · {itinerary.lodging.beds} camas
                             </div>
                             <div>
-                                {itinerary.lodging.price.total * 4150}
+                                {itinerary.lodging.price.total}
                             </div>
                         </a>
                         <div className={styles.flights}>

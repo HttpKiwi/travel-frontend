@@ -26,7 +26,7 @@ export const getRate = async () => {
 }
 
 export default function FlightInfo(props: flightProps) {
-    const [value, setValue] = useState(props.flight.pricing_options[0].price.amount * 4200)
+    const [value, setValue] = useState(props.flight.pricing_options[0].price.amount)
 
 
     const segments = props.flight.legs[0].segments.length
