@@ -51,7 +51,7 @@ export default function FlightInfo(props: flightProps) {
                         <p>{hourFormat(props.flight.legs[0].arrival)}</p>
                     </div>
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'row' }}>
+                <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                     <div className={styles.info}>
                         {props.flight.pricing_options[0].agents[0].name} -
                         {props.flight.legs[0].segments[0].marketingCarrier.name} -
