@@ -31,7 +31,7 @@ export default function FlightInfo(props: flightProps) {
 
     const segments = props.flight.legs[0].segments.length
     return (
-        <a target="_blank" href={props.flight.pricing_options[0].url} rel="noopener noreferrer">
+        <a target="_blank" href={props.flight.deeplink} rel="noopener noreferrer">
             <div className={styles.flightCard}>
                 <h4>Vuelo de {props.type}:</h4>
                 <p>{dateFormat(props.flight.legs[0].departure)}</p>

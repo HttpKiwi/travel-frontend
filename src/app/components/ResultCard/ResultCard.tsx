@@ -40,7 +40,7 @@ export default function ResultCard(props: ResultCardProps) {
             {itineraries.map((itinerary: Itinerary) => (
                 <div key={itinerary.departure.id} className={styles.container}>
                     <div className={styles.content}>
-                        <a className={styles.lodgings} href={itinerary.lodging.deeplink.replace(".com", ".com.co")}>
+                        <a className={styles.lodgings} target="_blank" rel="noopener noreferrer" href={itinerary.lodging.deeplink.replace(".com", ".com.co")}>
                             <div style={{ paddingBottom: '20px' }}>
                                 <h2>{itinerary.lodging.name}</h2>
                             </div>
