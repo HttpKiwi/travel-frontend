@@ -7,6 +7,7 @@ import { SolverSolution } from '@/app/interfaces/solverSolution.model';
 
 type HeroProps = {
     setSolutions: (data: SolverSolution[]) => void;
+    setIsLoading: (data: boolean) => void;
 }
 
 
@@ -61,7 +62,7 @@ export default function Hero(props: HeroProps) {
 
     useEffect(() => {
         const searchQnA = async () => {
-            if (value !== "") {
+            if (value !== "" && data !== undefined) {
                 setIsDefaultVisible("block")
                 setIsVisible("none")
                 if (data?.adults === -1 || data?.adults === undefined) {
@@ -91,6 +92,7 @@ export default function Hero(props: HeroProps) {
             setValue("")
 
             if (hasValidInput(data)) {
+                props.setIsLoading(true);
                 setText("Espera mientras encontramos tu viaje al mejor precio");
                 console.log(data);
                 // const res = await fetch("http://127.0.0.1:5000/mzn", {
@@ -98,12 +100,12 @@ export default function Hero(props: HeroProps) {
                     method: "POST",
                     body: JSON.stringify(data)
                 });
-                let obj;
+                props.setIsLoading(false);
+                let obj: SolverSolution[][];
                 obj = await res.json();
                 console.log(obj);
-                if (Array.isArray(obj)) {
-                    // Check if the response is an array (Itinerary[])
-                    props.setSolutions(obj);
+                if (Array.isArray(obj) && obj[0].length !== 0) {
+                    props.setSolutions(obj[0]);
                 } else {
                     setIsVisible("none")
                     setIsDefaultVisible("none")
@@ -164,9 +166,9 @@ export default function Hero(props: HeroProps) {
                     </dfn> e <dfn className={styles.peopleHover} title='Personas entre 0-1 años'>infantes</dfn> viajan?
                 </div>
                 <div className={styles.error} style={{ display: isErrorMessageVisible }}>
-                    Parece que no hay viajes disponobles con tus parametros,
-                    te retornaré a tu primera búsqueda para que puedas cambiar
-                    algún dato como el presupuesto o los servicios del hospedaje
+                    Parece que no hay viajes disponibles con tus parametros,
+                    prueb cambiando algún dato como el presupuesto
+                    o los servicios del hospedaje
                 </div>
             </div>
             <div className={styles.search}>
