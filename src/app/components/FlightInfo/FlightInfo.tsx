@@ -15,7 +15,7 @@ const dateFormat = (string: string) => {
 }
 
 const hourFormat = (string: string) => {
-    return new Date(string).toLocaleString('es', { hour: '2-digit', minute: '2-digit', hour12: true })
+    return new Date(string).toLocaleString('es', { hour: '2-digit', minute: '2-digit', hour12: false })
 }
 
 export const getRate = async () => {
